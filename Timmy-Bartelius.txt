@@ -1,1 +1,11 @@
 Github repo: https://github.com/TimmyBartelius/Provfil-1
+
+Jag visste inte riktigt om disabled kunde kringgås med testerna under navigationen - men jag gjorde dem som om det var enabled och försökte anpassa testerna till detta. Så de är utkommenterade då jag inte ville gräva ner mig i att kringgå disabled i elementen relevanta.
+
+Eller så kanske jag inte fattade att det var meningen att kringgå dessa? Oklart
+
+När jag skrivit npx playwright test så gick det i vilket fall inte riktigt att navigera pga disabled på navigationsknapparna i header... jag vet inte riktigt varför det skulle spela roll - men det kanske har med ordningen av testerna och göra?
+
+Ja, det får bli som det blir. Min hjärna blir så mosig av att sitta med det så länge men jag hoppas du förstår vad jag menar.
+
+Ha en fantastisk sommar! 
