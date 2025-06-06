@@ -1,19 +1,21 @@
 import { test, expect } from "@playwright/test";
 
-test.describe("Kollar så man kan lägga till en ny bok med text-input", () => {
+test.describe("Lägga till en bok och se den i katalog och Mina böcker", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto("https://tap-ht24-testverktyg.github.io/exam-template/");
   });
 
-  test("Testar om man kan fylla i en titel", async ({ page }) => {
-    //lägger till en ny bok
-    await page.getByTestId("add-book").click();
+  test("Lägger till en ny bok och kontrollerar att den visas korrekt", async ({
+    page,
+  }) => {
+    // Navigerar till "Lägg till bok"
+    await page.getByRole("button", { name: "Lägg till bok" }).click();
 
-    //hitta rätt input
+    // Fyller i titel och författare
     await page.getByTestId("add-input-title").fill("The Winter Wars");
     await page.getByTestId("add-input-author").fill("T.Bartelius");
 
-    //rätt input kontrolleras
+    // Verifierar fälten, så de stämmer överens med författare och titel
     await expect(page.getByTestId("add-input-title")).toHaveValue(
       "The Winter Wars"
     );
@@ -21,7 +23,29 @@ test.describe("Kollar så man kan lägga till en ny bok med text-input", () => {
       "T.Bartelius"
     );
 
-    //klickar på lägg-till knappen
-    await page.getByRole("Button", { name: "Lägg till ny bok" }).click();
+    // Klickar på "Lägg till ny bok"
+    await page.getByRole("button", { name: "Lägg till ny bok" }).click();
+
+    // Navigerar till katalogen
+    await page.getByRole("button", { name: "Katalog" }).click();
+
+    // Kontrollerar att boken och författaren syns i katalogen, efter det går vi till "Mina Böcker"
+    const bokElement = page.getByText("The Winter Wars").first();
+    await expect(bokElement).toBeVisible();
+    await expect(page.getByText("T.Bartelius")).toBeVisible();
+
+    // Klickar på favoritknappen för boken (hjärtat)
+    await expect(page.getByTestId("star-The Winter Wars")).toBeVisible();
+    await page.getByTestId("star-The Winter Wars").click();
+
+    // Navigerar till "Mina böcker"
+    await page.getByRole("button", { name: "Mina böcker" }).click();
+
+    // Kontrollerar att boken finns i favoritlistan (titeln)
+    const favorit = page.getByTestId("fav-The Winter Wars");
+    await expect(favorit).toBeVisible();
+    await expect(favorit).toHaveText("The Winter Wars");
+
+    //  Vi kollar inte författaren här då den inte finns i favoritlistan, den finns på katalogen.
   });
 });

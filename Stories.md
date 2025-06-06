@@ -44,11 +44,11 @@
 
 6. Som användare vill jag kunna avmarkera en bok i "Mina böcker" så att den tas bort från min lista.
 
-6.A) Varje bok i "Mina böcker" ska ha en knapp eller ikon för att ta bort/avmarkera.
+6.A) Varje bok i "Katalogvyn" ska ha en knapp eller ikon för att ta bort/avmarkera.
 
 6.B) När användaren klickar på denna ska boken tas bort från listan.
 
-6.C) Listan ska uppdateras direkt efter avmarkeringen.
+6.C) Listan ska uppdateras direkt efter avmarkeringen. (Kanske inte nödvändig)
 
 ---
 
@@ -57,8 +57,6 @@
 7.A) Användaren ska kunna skriva in titel, författare.
 
 7.B) Det ska gå att klicka på en "Lägg till"-knapp för att skicka in formuläret.
-
-7.C) Formuläret ska visa en bekräftelse efter att boken lagts till.
 
 ---
 
