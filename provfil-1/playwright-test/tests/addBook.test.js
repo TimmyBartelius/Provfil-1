@@ -26,6 +26,11 @@ test.describe("Lägga till en bok och se den i katalog och Mina böcker", () => 
     // Klickar på "Lägg till ny bok"
     await page.getByRole("button", { name: "Lägg till ny bok" }).click();
 
+    //Det finns minst en bok i katalogen
+    await expect(
+      page.getByTestId("catalogue-list").locator("li")
+    ).toHaveCountGreaterThan(0);
+
     // Navigerar till katalogen
     await page.getByRole("button", { name: "Katalog" }).click();
 

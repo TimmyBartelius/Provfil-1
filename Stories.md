@@ -30,8 +30,6 @@
 
 4.B) När användaren klickar på favorit-ikonen för en bok ska boken markeras som favorit (med hjärtat).
 
-4.C) En bekräftelse (visuellt) ska visas.
-
 ---
 
 5. Som användare vill jag kunna se en bok jag favoritmarkerat dyka upp i "Mina böcker" så att jag vet att markeringen fungerat.
@@ -47,8 +45,6 @@
 6.A) Varje bok i "Katalogvyn" ska ha en knapp eller ikon för att ta bort/avmarkera.
 
 6.B) När användaren klickar på denna ska boken tas bort från listan.
-
-6.C) Listan ska uppdateras direkt efter avmarkeringen. (Kanske inte nödvändig)
 
 ---
 
